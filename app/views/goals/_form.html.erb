@@ -1,0 +1,39 @@
+<%
+title, method, url = if goal.persisted?
+  ['Edit Goal', 'patch', goal_url(goal)]
+else
+  ['Create Goal', 'post', goals_url]
+end
+
+%>
+
+
+<form action="<%= url %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>">
+
+  <%= csrf_input %>
+  <label>Title
+    <input type="text" name="goals[title]" value="<%= goal.title %>">
+  </label>
+  <br>
+
+  <label>
+    <input type="radio" name="goals[is_private]" value="false"
+    <%= 'checked' unless goal.is_private %>>
+    Public
+  </label>
+
+  <label>
+    <input type="radio" name="goals[is_private]" value="true"
+    <%= 'checked' if goal.is_private %>>
+    Private
+  </label>
+
+  <% if goal.persisted? %>
+    <input type="hidden" name="goals[completed]" value="false">
+    <label>Complete
+      <input type="checkbox" name="goals[completed]" value="true">
+    </label>
+  <% end %>
+  <input type="submit" value="<%= title %>">
+</form>
