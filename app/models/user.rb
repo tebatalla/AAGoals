@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :authored_user_comments, foreign_key: :author_id, class_name: 'UserComment'
+  has_many :authored_goal_comments, foreign_key: :author_id, class_name: 'GoalComment'
+
+  has_many :comments, class_name: "UserComment"
+
   has_many :goals
 
   def ensure_session_token

@@ -1,17 +1,20 @@
 # == Schema Information
 #
-# Table name: goals
+# Table name: user_comments
 #
 #  id         :integer          not null, primary key
-#  title      :string           not null
+#  content    :text             not null
+#  author_id  :integer          not null
 #  user_id    :integer          not null
-#  is_private :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  completed  :boolean
 #
 
-require 'rails_helper'
+FactoryGirl.define do
+  factory :user_comment do
+    content "MyText"
+author_id 1
+user_id 1
+  end
 
-RSpec.describe Goal, type: :model do
 end

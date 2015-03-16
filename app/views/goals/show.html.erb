@@ -1,0 +1,14 @@
+<%= render @goal %>
+
+<%= render @goal.comments %>
+
+Add Comment:
+
+<form action="<%= goal_goal_comments_url(@goal) %>" method="post">
+  <%= csrf_input %>
+
+  <textarea id="content" name="comments[content]" rows="8" cols="40"></textarea>
+
+  <input type="submit" value="Submit">
+
+</form>

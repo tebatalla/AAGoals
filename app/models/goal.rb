@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  title      :string           not null
 #  user_id    :integer          not null
-#  private    :boolean
+#  is_private :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  completed  :boolean
@@ -18,6 +18,8 @@ class Goal < ActiveRecord::Base
   after_initialize :ensure_completion_value
 
   belongs_to :user
+
+  has_many :comments, class_name: :GoalComment
 
   private
     def ensure_completion_value

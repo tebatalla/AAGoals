@@ -21,4 +21,9 @@ class ApplicationController < ActionController::Base
     user.reset_session_token!
     self.session[:token] = nil
   end
+
+  private
+    def comment_params
+      params.require(:comments).permit(:content)
+    end
 end

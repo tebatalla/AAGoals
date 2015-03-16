@@ -3,3 +3,16 @@
 <%= render @user.goals %>
 
 <%= link_to 'New Goal', new_goal_url if current_user == @user %>
+
+<%= render @user.comments %>
+
+Add Comment
+
+<form action="<%= user_user_comments_url(@user) %>" method="post">
+  <%= csrf_input %>
+
+  <textarea id="content" name="comments[content]" rows="8" cols="40"></textarea>
+
+  <input type="submit" value="Submit">
+
+</form>

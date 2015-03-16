@@ -36,6 +36,11 @@ class GoalsController < ApplicationController
     end
   end
 
+  def show
+    @goal = Goal.find(params[:id])
+    render :show
+  end
+
   private
     def goal_params
       params.require(:goals).permit(:title, :is_private)
