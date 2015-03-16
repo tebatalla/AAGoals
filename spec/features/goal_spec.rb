@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 def log_in(user)
-  #log in
   visit new_session_url
   fill_in 'username', with: user.username
   fill_in 'password', with: user.password
