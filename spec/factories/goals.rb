@@ -8,13 +8,15 @@
 #  private    :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  completed  :boolean
 #
 
 FactoryGirl.define do
   factory :goal do
-    title "MyString"
-user_id 1
-private false
+    title "Something"
+    user_id 1
+    is_private false
+    completed false
   end
 
 end

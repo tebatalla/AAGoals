@@ -1,0 +1,6 @@
+<% if !goal.is_private || current_user.id == goal.user_id %>
+  <div>
+    <%= goal.title %> <%= "(Private)" if goal.is_private %> <%= '(Completed)' if goal.completed %>
+    <%= button_to "Delete Goal", goal, method: :delete if goal.user_id == current_user.id %>
+  </div>
+<% end %>
