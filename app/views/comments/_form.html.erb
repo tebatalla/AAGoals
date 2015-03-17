@@ -1,0 +1,13 @@
+<div>
+  Add Comment:
+  <form action="<%= comments_url %>" method="post">
+
+    <textarea name="comments[content]" id="content" rows="8" cols="40"></textarea>
+
+    <input type="hidden" name="comments[commentable_id]" value="<%= comment.commentable_id %>">
+    <input type="hidden" name="comments[commentable_type]" value="<%= comment.commentable_type %>">
+
+    <input type="submit" value="Submit">
+
+  </form>
+</div>

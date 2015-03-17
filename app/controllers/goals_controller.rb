@@ -36,6 +36,12 @@ class GoalsController < ApplicationController
     end
   end
 
+  def show
+    @goal = Goal.find(params[:id])
+    @new_comment = Comment.new(commentable: @goal)
+    render :show
+  end
+
   private
     def goal_params
       params.require(:goals).permit(:title, :is_private)

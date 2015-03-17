@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @new_comment = Comment.new(commentable: @user)
     render :show
   end
 

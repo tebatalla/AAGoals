@@ -3,3 +3,7 @@
 <%= render @user.goals %>
 
 <%= link_to 'New Goal', new_goal_url if current_user == @user %>
+
+<%= render @user.comments %>
+
+<%= render 'comments/form', comment: @new_comment %>
